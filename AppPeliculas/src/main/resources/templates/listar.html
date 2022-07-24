@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns:th="www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link
+	href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css"
+	rel="stylesheet">
+<title th:text="${titulo}"></title>
+</head>
+<body>
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+		<div class="container-fluid">
+
+			<div class="collapse navbar-collapse" id="navbarNav">
+				<ul class="navbar-nav">
+					<li class="nav-item"><a class="nav-link active"
+						aria-current="page" th:href="@{/}">Home</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/pel/listar}">Lista de peliculas</a></li>
+					<li class="nav-item"><a class="nav-link"
+						th:href="@{/pel/agregar}">Agregar una pelicula</a></li>
+					<li class="nav-item"><a class="nav-link disabled">Disabled</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</nav>
+<div class="container">
+	<h1 th:text="${tituloBody}" class="text-secondary border border-sucess border-top-0 border-left-0 border-right-0"></h1>
+	<!-- Mostrar las lista de todas las peliculas -->
+	<div th:if="${todasLasPeliculas.size() == 0}"> No hay peliculas para mostrar !</div>
+	<table th:if="${todasLasPeliculas.size() > 0}" class="table table-striped">
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Nombre</th>
+			<th>Genero</th>
+			<th>Director</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="pel : ${todasLasPeliculas}">
+			<td th:text = "${pel.idPelicula}"></td>
+			<td th:text = "${pel.nombrePelicula}"></td>
+			<td th:text = "${pel.generoPelicula}"></td>
+			<td th:text = "${pel.directorPelicula}"></td>
+		</tr>
+	</tbody>
+	</table>
+</div>
+</body>
+</html>
