@@ -8,5 +8,7 @@ public interface IServicioPelicula {
 
 	public List<Pelicula> listarTodas();
 	
+	public List<Pelicula> apiListar();
+	
 	public void agregarPelicula(Pelicula pelicula);
 }

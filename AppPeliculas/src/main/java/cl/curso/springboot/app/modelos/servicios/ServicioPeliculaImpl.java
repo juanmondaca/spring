@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import cl.curso.springboot.app.integracion.webapi.IntegracionApiPeliculas;
 import cl.curso.springboot.app.modelos.daoDummy.IDaoDummy;
 import cl.curso.springboot.app.modelos.entidades.Pelicula;
 
@@ -16,6 +17,13 @@ public class ServicioPeliculaImpl implements IServicioPelicula{
 	
 	@Autowired
 	private IDaoDummy daoDummy;
+	@Autowired
+	private IntegracionApiPeliculas iap;
+	
+	@Transactional(readOnly = true)
+	public List<Pelicula> apiListar(){
+		return iap.listarApiPeliculas();
+	}
 
 	@Override
 	@Transactional(readOnly = true)

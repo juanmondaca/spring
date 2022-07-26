@@ -19,6 +19,15 @@ public class PeliculaController {
 	
 	@Autowired
 	private IServicioPelicula servicioPelicula;
+	
+	@RequestMapping(value = "/listarapi", method = RequestMethod.GET)
+	public String listarApi(Model modelo) {
+		modelo.addAttribute("tituloListar","Lista de las Peliculas");
+		modelo.addAttribute("tituloBody","Peliculas");
+		
+		modelo.addAttribute("todasLasPeliculas", servicioPelicula.apiListar());
+		return "listar";
+	}
 
 	@RequestMapping(value = "/listar", method = RequestMethod.GET)
 	public String listarPeliculas(Model modelo) {
