@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Index</title>
+</head>
+<body>
+	<h1>Links a las rutas del web site</h1>
+	<ul>
+		<li>
+		<!-- En thymeleaf se usa @ para rutas dentro del proyecto -->
+			<a th:href="@{/params/p1(texto='Un texto como parametro')}">/params/p1?texto=Un texto como parametro</a>
+		</li>
+		<li>
+			<a th:href="@{/params/p1(texto='Otro texto')}">/params/p1?texto=Otro texto</a>
+		</li>
+		<!-- para la segunda parte del ejercicio -->
+		<li>
+			<a th:href="@{/params/varios-params(texto='nuevo texto',numero=20)}">/params/varios-params?texto=Otro texto&numero=20</a>
+		</li>
+		<!-- para la tercera parte del ejercicio -->
+		<li>
+			<a th:href="@{/params/request-params(texto='nuevo texto',numero=200)}">/params/varios-params?texto=Otro texto&numero=200</a>
+		</li>
+	</ul>
+</body>
+</html>

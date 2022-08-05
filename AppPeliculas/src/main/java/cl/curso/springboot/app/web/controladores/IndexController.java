@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 public class IndexController {
 	
-	//@RequestMapping(value = "/index", method = RequestMethod.GET)
-	@GetMapping(value = {"/index","/","/home"})
+	@RequestMapping(value = "/index", method = RequestMethod.GET)
+	//	@GetMapping(value = {"/index","/","/home"})
 	public String index(Model modelo) {
 		modelo.addAttribute("tituloForm", "Index!");
 		modelo.addAttribute("tituloBody","App de Peliculas");

@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html  xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="ISO-8859-1">
+<!-- mostrar el uso de los estilos css para el ejemplo -->
+<link rel="stylesheet" type="text/css" th:href="@{/css/estilos1.css}"></link>
+<title th:text="${tituloForm}"></title>
+</head>
+<body>
+	<h1 class="color-rojo" th:text="${tituloBody}"></h1>
+	<h2 class="color-azul">Vista Index llamada por el IndexController</h2>
+</body>
+</html>

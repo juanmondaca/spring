@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Insert title here</title>
+</head>
+<body>
+<div class="container">
+	<form th:action="@{/usuarios/agregar}"  method="get">
+	  <div class="form-group">
+	    <label for="nombreUsuario">Nombre usuario</label>
+	    <input type="text"  class="form-control" id="nombreUsuario" placeholder="nombre del usuario" name="nombre">
+	  </div>
+	  <div class="form-group">
+	    <label for="apellidoUsuario">Password</label>
+	    <input type="text" class="form-control" id="apellidoUsuario" placeholder="apellido del usuario" name="apelliido">
+	  </div>
+	  <div class="form-group">
+	    <label for="emailUsuario">Email del usuario</label>
+	    <input type="email" class="form-control" id="emailUsuario" placeholder="ingrese email" name="email">
+	  </div>
+	  <button type="submit" class="btn btn-primary">Submit</button>
+	</form>
+</div>
+</body>
+</html>
