@@ -23,7 +23,7 @@ public class LoginController {
 			@RequestParam(value = "pwdUsuario") String pwd,
 			Model modelo) {
 		
-		// verifica el usurio y la pwd contra valores fijos
+		// verifica el usuario y la pwd contra valores fijos
 		String nu = "usuario1";
 		String pw = "Pwd1";
 		
