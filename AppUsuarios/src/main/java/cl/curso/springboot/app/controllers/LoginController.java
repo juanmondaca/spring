@@ -24,7 +24,7 @@ public class LoginController {
 		
 		return "login/formLoginUsuario";
 	}
-	// metodo que valida las credenciales del usuario
+	// metodo simple que valida las credenciales del usuario
 	@PostMapping("/login-usuario")
 	public String loginUsuario(
 			@RequestParam(value = "nombreUsuario") String l,
