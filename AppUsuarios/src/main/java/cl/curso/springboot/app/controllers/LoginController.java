@@ -31,7 +31,7 @@ public class LoginController {
 			return "forward:/usuarios/listado";
 		}
 		
-		return "forward:/";
+		return "forward:/"; //  redirect:https://www.google.com
 	}
 
 }
