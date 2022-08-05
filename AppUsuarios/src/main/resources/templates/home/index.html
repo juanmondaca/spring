@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title th:text="${titulo}">Index</title>
+</head>
+<body>
+	<h1 th:text="${titulo}"></h1>
+	<ul>
+		<li>
+			<a th:href="@{/auth/form-login} ">Ir al Login</a>
+		</li>
+	</ul>
+</body>
+</html>

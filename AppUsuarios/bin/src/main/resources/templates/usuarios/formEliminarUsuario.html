@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Agregar nuevo usuario</title>
+</head>
+<body>
+
+	<div class="container">
+	<h1>Remover a un Usuario dado su email</h1>
+		<form th:action="@{/usuarios/eliminar-usuario}" method="post">
+		
+			<div class="form-group">
+				<label>Email del usuario a remover</label>
+				<input type="text" name="emailUsuario" id="emailUsuario" class="form-control">
+			</div>
+
+			<button type="submit" class="btn btn-primary">Remover usuario</button>
+		</form>
+	
+	</div>
+
+</body>
+</html>

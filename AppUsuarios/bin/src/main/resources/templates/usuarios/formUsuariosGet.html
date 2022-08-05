@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet">
+<title>Agregar nuevo usuario</title>
+</head>
+<body>
+
+	<div class="container">
+		<h1>Agregar un nuevo Usuario con GET</h1>
+		<form th:action="@{/usuarios/agregar-usuario-get}" method="get">
+		
+			<div class="form-group">
+				<label>Nombre de usuario:</label>
+				<input type="text" name="nombreUsuario" id="nombreUsuario" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Apellido usuario:</label>
+				<input type="text" name="apellidoUsuario" id="apellidoUsuario" class="form-control">
+			</div>
+			<div class="form-group">
+				<label>Email usuario</label>
+				<input type="text" name="emailUsuario" id="emailUsuario" class="form-control">
+			</div>
+			<button type="submit" class="btn btn-primary">Enviar los datos</button>
+		</form>
+	
+	</div>
+
+</body>
+</html>
