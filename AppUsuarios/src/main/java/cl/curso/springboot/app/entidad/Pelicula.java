@@ -3,10 +3,15 @@ package cl.curso.springboot.app.entidad;
 import javax.persistence.*;
 
 @Entity
+@Table(name="pelicula")
 public class Pelicula {
 	
+	@Id
+	@GeneratedValue()
 	private Long idPelicula;
-	private String nombrePelicula;;
+	@Column(name="nombrePelicula")
+	private String nombrePelicula;
+
 	private String generoPelicula;
 	private String directorPelicula;
 	

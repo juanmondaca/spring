@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<link rel="stylesheet" type="text/css" th:href="@{/css/estilos1.css}"></link>
+<title th:text="${tituloPagina}"></title>
+</head>
+<body>
+	<h1 class="color-azul" th:text="${tituloBody}"></h1>
+	<div th:if="${listaPeliculas.size() == 0}"> No hay peliculas a un para listar!</div>
+		<table th:if="${not listaPeliculas.isEmpty()}">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th>Pelicula</th>
+					<th>Genero</th>
+					<th>Director</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr th:each="pel: ${listaPeliculas}">
+					<td th:text="${pel.idPelicula}"></td>
+					<td th:text="${pel.nombrePelicula}"></td>
+					<td th:text="${pel.generoPelicula}"></td>
+					<td th:text="${pel.directorPelicula}"></td>
+				</tr>
+			</tbody>
+		</table>
+
+</body>
+</html>
