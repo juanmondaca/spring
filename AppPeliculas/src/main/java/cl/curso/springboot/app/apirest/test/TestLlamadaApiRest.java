@@ -17,9 +17,11 @@ public class TestLlamadaApiRest {
 		
 		String uriApiRest = "http://localhost:8081/textos/saludo";
 		RestTemplate rt = new RestTemplate();
-		String resultadoLlamada = rt.getForObject(uriApiRest, String.class);
+		boolean resultadoLlamada = rt.getForObject(uriApiRest, Boolean.class);
 		
 		modelo.addAttribute("saludoapi",resultadoLlamada);
 		return "saludoRest";
 	}
+	
+
 }

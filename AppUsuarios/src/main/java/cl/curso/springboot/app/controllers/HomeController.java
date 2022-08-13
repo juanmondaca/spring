@@ -9,10 +9,15 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/")
 public class HomeController {
-	@PostMapping("/")
+	@GetMapping("/")
 	public String home(Model modelo) {
 		modelo.addAttribute("titulo","Autentificacion de Usuario");
 		return "/home/index";
 	}
 
+	@PostMapping("/log")
+	public String homeapp(Model modelo) {
+		modelo.addAttribute("titulo","Autentificacion de Usuario");
+		return "/home/index";
+	}
 }

@@ -8,11 +8,13 @@ public class Pelicula {
 	
 	@Id
 	@GeneratedValue()
+	@Column(name="id_pelicula")
 	private Long idPelicula;
-	@Column(name="nombrePelicula")
+	@Column(name="nombre_Pelicula")
 	private String nombrePelicula;
-
+	@Column(name="genero_pelicula")
 	private String generoPelicula;
+	@Column(name="director_pelicula")
 	private String directorPelicula;
 	
 	

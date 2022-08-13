@@ -16,18 +16,14 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
 	//Contexto de persistencia 
 	@PersistenceContext
 	private EntityManager em;
-
 	@Override
 	@Transactional(readOnly = true)
 	public List<Pelicula> findAll() {
-		// TODO Auto-generated method stub
 		return em.createQuery("from Pelicula").getResultList();
 	}
-
 	@Override
 	@Transactional
 	public void save(Pelicula pelicula) {
-		// TODO Auto-generated method stub
 		if(pelicula.getIdPelicula() != null && pelicula.getIdPelicula() > 0) {
 			// Caso en que el id ya existe => actualiza con merge
 			em.merge(pelicula);
@@ -37,13 +33,11 @@ public class PeliculaDAOImpl implements IPeliculaDAO{
 		}
 		
 	}
-
 	@Override
 	public Pelicula findOne(Long id) {
 		// TODO Auto-generated method stub
 		return em.find(Pelicula.class, id);
 	}
-
 	@Override
 	@Transactional
 	public void delete(Long id) {
