@@ -47,6 +47,7 @@ public class CryptoCurrencyDaoImpl implements ICryptoCurrencyDao{
 	@Override
 	public WrapperCryptoCurrency seleccionNCryptos(List<String> acronimosSeleccionados) {
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 	
