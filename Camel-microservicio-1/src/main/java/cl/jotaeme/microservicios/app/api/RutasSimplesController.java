@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Component
 @RequestMapping("/api-camel-simple")
-public class BeanRutasSimples {
+public class RutasSimplesController {
 	@Autowired
 	private ProducerTemplate pt;
 

@@ -1,6 +1,7 @@
 package cl.curso.springboot.app.servicios;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import cl.curso.springboot.app.integracion.ILoginDAODummy;
@@ -11,11 +12,12 @@ import cl.curso.springboot.app.integracion.ILoginDAODummy;
 public class LoginServiceImpl implements ILoginService {
 	
 	// en un primer caso las credenciales son fijas
-	private String nombreUsuario = "usuario1";;
-	private String pwdUsuario    = "Pwd1";
+//	private String nombreUsuario = "usuario1";;
+//	private String pwdUsuario    = "Pwd1";
 	
 	// en un segundo caso usamos el repositorio
 	@Autowired
+	@Qualifier("loginDAOCamelDummyImpl") // esta anotacion usarla solo con la auth via microservicio Camel
 	private ILoginDAODummy ldd;
 
 	@Override
