@@ -3,6 +3,7 @@ package cl.curso.springboot.app.controllers;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -12,12 +13,20 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import cl.curso.springboot.app.entidad.Usuario;
+import cl.curso.springboot.app.servicios.IUsuarioService;
 
 // Operaaciones CRUD sobre Usuario
 @Controller
 @RequestMapping("/usuarios")
 public class UsuarioController {
 
+	/********
+	// para demo de operaciones CRUD con Usuario y con JPA ... inyectar servcicio
+	*********/
+	@Autowired
+	private IUsuarioService us;
+	// ***************************
+	
 	private List<Usuario> listaUsuarios = new ArrayList<Usuario>();
 	
 	public UsuarioController() {
@@ -25,6 +34,41 @@ public class UsuarioController {
 		listaUsuarios.add(new Usuario("Ana", "Rojas", "ar@b.cl"));
 		listaUsuarios.add(new Usuario("Maria", "Gonzalez", "mg@b.cl"));
 	}
+	/**********
+	 * 
+	 * Para demo de JPA con Usuario ... Listar todos los usuarios
+	 */
+	@RequestMapping(value = "/listado-jpa")
+	public String listaUsariosJPA(Model m) {
+		m.addAttribute("tituloPagina","Lista de usuarios");
+		m.addAttribute("tituloBody","Listado de todos los usuarios");
+		m.addAttribute("listaDeUsuarios",this.us.listar());
+		return "usuarios/listadoUsuarios";
+	}
+	/**********
+	 * 
+	 * Para demo de JPA con Usuario ... Agregar un nuevo usuario
+	 */
+	
+	@GetMapping("/agregar-usuario-get-jpa")
+	public String agregarUsuarioJPA(@RequestParam String nombreUsuario,
+			@RequestParam String apellidoUsuario,
+			@RequestParam String emailUsuario,
+			Model modelo) {
+		
+		Usuario nuevoUsuario = new Usuario(nombreUsuario, apellidoUsuario, emailUsuario);
+		this.us.grabar(nuevoUsuario);
+		modelo.addAttribute("listaDeUsuarios",this.us.listar());
+		return "usuarios/listadoUsuarios";
+	}
+	// este metodo llama a la vista formUsuariosGetJPA
+	@GetMapping("/form-get-jpa")
+	public String datosUsuariosJPA() {
+		return "usuarios/formUsuariosGetJPA";
+	}
+	// ***************************
+	
+	
 	// listar todos los usuarios
 	@RequestMapping("/listado")
 	public String listaUsuarios(Model m) {

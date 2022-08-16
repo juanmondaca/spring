@@ -1,9 +1,24 @@
 package cl.curso.springboot.app.entidad;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="usuario")
 public class Usuario {
 	
+	@Id
+	@GeneratedValue
+	@Column(name="idusuario")
+	private Long id; // atributo agregado para el ejercicio de persitencia ... mejor agregarlo desde un principio
+	@Column(name="nombreusuario")
 	private String nombre;
+	@Column(name="apellidousuario")
 	private String apellido;
+	@Column(name="emailusuario")
 	private String email;
 	
 	public Usuario() {
@@ -15,6 +30,14 @@ public class Usuario {
 		this.nombre = nombre;
 		this.apellido = apellido;
 		this.email = email;
+	}
+	
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
 	}
 
 	public String getNombre() {
