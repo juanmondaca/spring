@@ -1,5 +1,6 @@
 package cl.jotaeme.microservicios.app.integracion;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.List;
@@ -44,11 +45,29 @@ public class CryptoCurrencyDaoImpl implements ICryptoCurrencyDao{
 		return wcc;
 	}
 	
+	// selecciona una lista de cryptos y las retorna ordenadas en forma decreciente
+	// el parametro acronimosSelecciondos son acronimos de las cryptos
 	@Override
 	public WrapperCryptoCurrency seleccionNCryptos(List<String> acronimosSeleccionados) {
 		// TODO Auto-generated method stub
+		WrapperCryptoCurrency wca = new WrapperCryptoCurrency();
 		
-		return null;
+		List<CryptoCurrency> listaCompleta = this.apiListado();
+		List<CryptoCurrency> listaTmp = new ArrayList<>();
+		
+		for(String sa : acronimosSeleccionados) {
+			for(CryptoCurrency ca : listaCompleta) {
+				if(ca.getAcronym().equalsIgnoreCase(sa)) {
+					listaTmp.add(ca);
+					break;
+				}
+			}
+		}
+		// ordenar la lista en forma decreciente
+		listaTmp.sort(Comparator.comparing(CryptoCurrency::getPrice_USD).reversed());
+		
+		wca.setListaCC(listaCompleta);
+		return wca;
 	}
 	
 	// metodos privados

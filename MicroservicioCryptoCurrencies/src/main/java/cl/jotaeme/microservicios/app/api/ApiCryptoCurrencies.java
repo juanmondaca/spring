@@ -39,4 +39,6 @@ public class ApiCryptoCurrencies {
 	public WrapperCryptoCurrency topNCryptos(@PathVariable("n") int topn) {
 		return this.ccs.obtenerLasTopNCryptos(topn);
 	}
+	
+	
 }

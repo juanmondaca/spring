@@ -31,6 +31,12 @@ public class CryptoCurrencyServiceImpl implements ICryptoCurrencyService {
 	public WrapperCryptoCurrency obtenerLasTopNCryptos(int topN) {
 		return this.ccd.obtenerLasTopNCryptos(topN);
 	}
+
+	@Override
+	public WrapperCryptoCurrency seleccionNCryptos(List<String> acronimosSeleccionados) {
+		// TODO Auto-generated method stub
+		return this.ccd.seleccionNCryptos(acronimosSeleccionados);
+	}
 	
 	
 
